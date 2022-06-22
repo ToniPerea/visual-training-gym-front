@@ -52,5 +52,8 @@ Thumbs.db
 # Prettier config file
 .prettierrc.json
 
+# Miscellaneous
+/.angular/cache
+
 # Package lock
 package-lock.json
