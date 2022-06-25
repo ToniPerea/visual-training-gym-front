@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
 import {UserService} from "../../services/user.service";
+import {User} from "../../models/user";
 
 
 @Component({
@@ -20,10 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    const user = {email: this.email, password: this.password};
-    this.userService.login(user).subscribe( data => {
-      console.log(data);
-    });
+    const userData= new User(this.email.value, this.password.value);
+    this.userService.login(userData).subscribe();
   }
 
 }
