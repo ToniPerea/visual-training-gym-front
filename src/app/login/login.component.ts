@@ -1,38 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
-import {User} from "../../models/user";
-import { AnimationItem } from 'lottie-web';
+import {AnimationItem} from 'lottie-web';
 import {AnimationOptions} from "ngx-lottie";
+import {Router} from "@angular/router";
+import {User} from "../../models/user";
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
-  options: AnimationOptions = {
-    path: '/assets/lotties/loginPage.json',
-  };
+    options: AnimationOptions = {
+        path: '/assets/lotties/loginPage.json',
+    };
 
-  email = new FormControl('',[Validators.required, Validators.email])
-  password = new FormControl('',[Validators.required])
+    email = new FormControl('a@a.com', [Validators.required, Validators.email])
+    password = new FormControl('patata', [Validators.required])
 
 
-  constructor(public userService: UserService) { }
+    constructor(public userService: UserService, private router: Router) {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  login(){
-    const userData= new User(this.email.value, this.password.value);
-    this.userService.login(userData).subscribe();
-  }
+    login() {
+        const userData = new User("",new Date(), this.email.value,this.password.value,"","")
+        this.userService.login(userData).subscribe();
+    }
 
-   animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
-  }
+    animationCreated(animationItem: AnimationItem): void {
+        console.log(animationItem);
+    }
 
 }

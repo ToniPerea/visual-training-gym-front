@@ -1,0 +1,51 @@
+<mat-card fxLayout="column" fxLayoutAlign="space-evenly center">
+    <mat-card-title>{{title}}</mat-card-title>
+    <form [formGroup]="userForm" fxLayout="column" fxLayoutAlign="space-evenly center">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="name"
+                   placeholder="Name and Surname">
+            <mat-error *ngIf="userForm.controls['name'].hasError('required')">
+                Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Birth Date</mat-label>
+            <input matInput formControlName="age" [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="userForm.controls['age'].hasError('required')">
+                Birth Date is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email"
+                   placeholder="example@example.com">
+            <mat-error *ngIf="userForm.controls['email'].hasError('email') &&
+            !userForm.controls['email'].hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="userForm.controls['email'].hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password">
+            <mat-error *ngIf="userForm.controls['password'].hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+                <mat-option *ngFor="let role of roles" [value]="role.value">
+                    {{role.label}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <button class="button" (click)="submit()" mat-raised-button color="primary">Submit</button>
+</mat-card>
