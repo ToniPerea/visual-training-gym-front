@@ -11,11 +11,18 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { LoginPageComponent } from './login-page/login-page.component';
+import {LottieModule} from "ngx-lottie";
+
+export function playerFactory() {
+  return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
+}
 
 @NgModule({
     declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        LoginPageComponent
     ],
     imports: [
         BrowserModule,
@@ -27,7 +34,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         MatInputModule,
         ReactiveFormsModule,
         MatButtonModule,
-        HttpClientModule
+        HttpClientModule,
+        LottieModule.forRoot({player:playerFactory})
     ],
     providers: [],
     bootstrap: [AppComponent]
