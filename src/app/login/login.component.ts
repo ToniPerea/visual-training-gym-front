@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
     login() {
         const userData = new User("",new Date(), this.email.value,this.password.value,"","")
-        this.userService.login(userData).subscribe();
+        this.userService.login(userData).subscribe(() => this.router.navigate(['/home']));
     }
 
     animationCreated(animationItem: AnimationItem): void {

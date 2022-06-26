@@ -14,10 +14,6 @@ export class UserService {
     }
 
     login(userData: User): Observable<User> {
-        const bbb = userData as User
-        const aaa = Serialize(userData, () => Object)
-        console.log(`El objeto serializado que mando es ${JSON.stringify(bbb)}`)
-        console.log(`El objeto sin seroi que mando es ${JSON.stringify(userData)}`)
         return this.http.post<IJsonObject>('http://localhost:8080/login', Serialize(userData, () => User)).pipe(
             map(user => Deserialize(user, () => User))
         )
