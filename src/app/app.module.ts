@@ -17,6 +17,11 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from '@angular/material/core';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import {MatSelectModule} from "@angular/material/select";
+import {MatIconModule} from "@angular/material/icon";
+import { HomePageComponent } from './home-page/home-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatMenuModule} from "@angular/material/menu";
 
 export function playerFactory() {
   return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
@@ -28,7 +33,9 @@ export function playerFactory() {
         LoginComponent,
         LoginPageComponent,
         UserFormComponent,
-        RegisterPageComponent
+        RegisterPageComponent,
+        HomePageComponent,
+        NavbarComponent
     ],
     imports: [
         BrowserModule,
@@ -44,7 +51,10 @@ export function playerFactory() {
         LottieModule.forRoot({player: playerFactory}),
         MatDatepickerModule,
         MatNativeDateModule,
-        MatSelectModule
+        MatSelectModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatMenuModule
     ],
     providers: [],
     bootstrap: [AppComponent]

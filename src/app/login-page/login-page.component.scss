@@ -7,3 +7,18 @@
   background-size: cover;
   min-height: 100vh;
 }
+
+p {
+  font-size: x-large;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.mat-icon {
+  filter: brightness(0) invert(1);
+  margin-top: 5px;
+}
+
+.powered-title {
+  font-size: medium;
+}
