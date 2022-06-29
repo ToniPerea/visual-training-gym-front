@@ -47,5 +47,16 @@
             </mat-select>
         </mat-form-field>
     </form>
-    <button class="button" (click)="submit()" mat-raised-button color="primary">Submit</button>
+    <button class="button"
+            *ngIf="status === 'register'"
+            (click)="submit()"
+            mat-raised-button
+            color="primary"> Resgistrar
+    </button>
+    <button class="button"
+            *ngIf="status === 'update'"
+            (click)="submitUpdate()"
+            mat-raised-button
+            color="primary"> Actualizar
+    </button>
 </mat-card>

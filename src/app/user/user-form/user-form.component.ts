@@ -15,6 +15,11 @@ export class UserFormComponent implements OnInit {
      */
     @Input() public title = '';
 
+    /**
+     * Status of the component
+     */
+    @Input() public status = '';
+
     roles = roleList;
 
     userForm: FormGroup;
@@ -31,6 +36,7 @@ export class UserFormComponent implements OnInit {
     };
 
     ngOnInit(): void {
+
     }
 
     submit(){
@@ -38,6 +44,13 @@ export class UserFormComponent implements OnInit {
             this.userForm.value.password, this.userForm.value.role, 'pending')
 
         this.userService.register(userData).subscribe()
+    }
+
+    submitUpdate(){
+        const userData = new User(this.userForm.value.name, this.userForm.value.age, this.userForm.value.email,
+            this.userForm.value.password, this.userForm.value.role, this.userForm.value.status)
+
+        this.userService.put(userData).subscribe()
     }
 
 

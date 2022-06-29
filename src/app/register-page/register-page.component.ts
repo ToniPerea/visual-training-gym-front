@@ -7,7 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class RegisterPageComponent implements OnInit {
 
-    title = 'Create Account';
+    title = 'Crear Cuenta';
+
+    status = 'register';
 
     constructor() {
     }
