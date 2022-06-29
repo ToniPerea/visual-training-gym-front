@@ -22,6 +22,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
+import { ExerciseFormComponent } from './exercise/exercise-form/exercise-form.component';
 
 export function playerFactory() {
   return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
@@ -35,7 +36,8 @@ export function playerFactory() {
         UserFormComponent,
         RegisterPageComponent,
         HomePageComponent,
-        NavbarComponent
+        NavbarComponent,
+        ExerciseFormComponent
     ],
     imports: [
         BrowserModule,
