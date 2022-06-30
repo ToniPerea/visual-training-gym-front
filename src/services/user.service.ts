@@ -4,7 +4,6 @@ import {Observable} from "rxjs";
 import {Deserialize, IJsonObject, Serialize} from 'dcerialize';
 import {map} from 'rxjs/operators';
 import {User} from "../models/user";
-import {Exercise} from "../models/exercise";
 
 
 @Injectable({
@@ -30,5 +29,10 @@ export class UserService {
         return this.http.put<IJsonObject>('http://localhost:8080/updateUser', Serialize(userData, () => User)).pipe(
             map(user => Deserialize(user, () => User))
         )
+    }
+
+    get(userEmail: string): Observable<User> {
+      return this.http.get<IJsonObject>(`http://localhost:8080/getUserByEmail/${userEmail}`)
+          .pipe(map(user => Deserialize(user, () => User)))
     }
 }
