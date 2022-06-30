@@ -31,7 +31,7 @@
                 Email is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field *ngIf="status === 'register'" appearance="fill">
             <mat-label>Password</mat-label>
             <input type="password" matInput formControlName="password">
             <mat-error *ngIf="userForm.controls['password'].hasError('required')">
@@ -47,5 +47,16 @@
             </mat-select>
         </mat-form-field>
     </form>
-    <button class="button" (click)="submit()" mat-raised-button color="primary">Submit</button>
+    <button class="button"
+            *ngIf="status === 'register'"
+            (click)="submit()"
+            mat-raised-button
+            color="primary"> Resgistrar
+    </button>
+    <button class="button"
+            *ngIf="status === 'update'"
+            (click)="submitUpdate()"
+            mat-raised-button
+            color="primary"> Actualizar
+    </button>
 </mat-card>

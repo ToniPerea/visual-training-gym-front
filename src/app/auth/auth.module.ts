@@ -37,6 +37,9 @@ import {AuthGuard} from "../../services/auth-guard.service";
         MatSelectModule,
         MatIconModule
     ],
+    exports: [
+        UserFormComponent
+    ],
     providers: [AuthService, AuthGuard]
 })
 export class AuthModule {

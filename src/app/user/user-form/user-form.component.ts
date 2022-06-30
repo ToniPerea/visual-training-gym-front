@@ -3,6 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {roleList} from "../../../utils/roles";
 import {UserService} from "../../../services/user.service";
 import {User} from "../../../models/user";
+import {Observable} from "rxjs";
+import {AuthService} from "../../../services/auth.service";
 
 @Component({
     selector: 'app-user-form',
@@ -15,11 +17,18 @@ export class UserFormComponent implements OnInit {
      */
     @Input() public title = '';
 
+    /**
+     * Status of the component
+     */
+    @Input() public status = '';
+
+    currentUser: User | undefined;
+
     roles = roleList;
 
     userForm: FormGroup;
 
-    constructor(private builder: FormBuilder, private userService: UserService
+    constructor(private builder: FormBuilder, private userService: UserService, private authService: AuthService
     ) {
         this.userForm = this.builder.group({
             name: new FormControl('', Validators.required),
@@ -31,13 +40,32 @@ export class UserFormComponent implements OnInit {
     };
 
     ngOnInit(): void {
+        if (this.authService.loggedIn()) {
+            this.userService.get(this.authService.getUserInfo().email).subscribe((user) => {
+                this.currentUser = user
+                this.userForm = this.builder.group({
+                    name: new FormControl(user.name, Validators.required),
+                    age: new FormControl(user.age, [Validators.required]),
+                    email: new FormControl(user.email, [Validators.required, Validators.email]),
+                    password: new FormControl(user.password, [Validators.required]),
+                    role: new FormControl(user.role, [Validators.required])
+                })
+            })
+        }
     }
 
-    submit(){
+    submit() {
         const userData = new User(this.userForm.value.name, this.userForm.value.age, this.userForm.value.email,
             this.userForm.value.password, this.userForm.value.role, 'pending')
 
         this.userService.register(userData).subscribe()
+    }
+
+    submitUpdate() {
+        const userData = new User(this.userForm.value.name, this.userForm.value.age, this.userForm.value.email,
+            this.userForm.value.password, this.userForm.value.role, this.userForm.value.status)
+
+        this.userService.put(userData).subscribe()
     }
 
 

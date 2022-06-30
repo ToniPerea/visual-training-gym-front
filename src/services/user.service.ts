@@ -24,4 +24,15 @@ export class UserService {
           map(user => Deserialize(user, () => User))
       )
     }
+
+    put(userData: User): Observable<User> {
+        return this.http.put<IJsonObject>('http://localhost:8080/updateUser', Serialize(userData, () => User)).pipe(
+            map(user => Deserialize(user, () => User))
+        )
+    }
+
+    get(userEmail: string): Observable<User> {
+      return this.http.get<IJsonObject>(`http://localhost:8080/getUserByEmail/${userEmail}`)
+          .pipe(map(user => Deserialize(user, () => User)))
+    }
 }

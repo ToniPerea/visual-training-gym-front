@@ -6,9 +6,9 @@
             <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button routerLink="/auth/profile" mat-menu-item>
                 <mat-icon>badge</mat-icon>
-                <span>Profile</span>
+                <span>Perfil</span>
             </button>
             <button (click)="logOut()" mat-menu-item routerLink="">
                 <mat-icon>logout</mat-icon>

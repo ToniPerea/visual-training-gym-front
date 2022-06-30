@@ -51,7 +51,7 @@ export class AuthService {
         this.token = token;
     }
 
-    private getToken(): string | null {
+    public getToken(): string | null {
         if (!this.token) {
             this.token = localStorage.getItem("ACCESS_TOKEN")
         }
@@ -64,14 +64,22 @@ export class AuthService {
         return !!AuthService.getStorageObject('ACCESS_TOKEN');
     }
 
+    public getUserInfo() {
+        const token = this.getToken();
+        let payload;
+        if (token) {
+            payload = token.split(".")[1];
+            payload = window.atob(payload);
+            return JSON.parse(payload);
+        } else {
+            return null;
+        }
+    }
+
     private static getStorageObject(key: string): any {
         if (sessionStorage.getItem(key) === null) {
-            // @ts-ignore
-            console.log(localStorage.getItem(key));
-
             return localStorage.getItem(key);
         } else {
-            // @ts-ignore
             return sessionStorage.getItem(key);
         }
     }
