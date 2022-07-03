@@ -65,7 +65,11 @@ export class UserFormComponent implements OnInit {
         const userData = new User(this.userForm.value.name, this.userForm.value.age, this.userForm.value.email,
             this.userForm.value.password, this.userForm.value.role, this.userForm.value.status)
 
-        this.userService.put(userData).subscribe()
+
+        this.userService.get(this.authService.getUserInfo().email).subscribe((user) => {
+            this.userService.put(user.email, userData).subscribe()
+        })
+
     }
 
 

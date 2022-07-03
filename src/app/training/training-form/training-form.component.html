@@ -1,0 +1,101 @@
+<mat-card fxLayout="column" fxLayoutAlign="start">
+    <form [formGroup]="trainingForm">
+        <div fxLayout="column" fxLayoutAlign="start" style="font-size: 13px">
+            <mat-card-title>Crear Tabla de Entrenamiento</mat-card-title>
+            <mat-form-field appearance="outline" fxLayoutAlign="start">
+                <mat-label>Día del Entreno</mat-label>
+                <input matInput formControlName="date_of_training" [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="trainingForm.controls['date_of_training'].hasError('required')">
+                    El día es <strong>obligatorio</strong>
+                </mat-error>
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="start">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email del Cliente</mat-label>
+                    <input type="email" matInput formControlName="email_client"
+                           placeholder="example@example.com">
+                    <mat-error *ngIf="trainingForm.controls['email_client'].hasError('email_client') &&
+            !trainingForm.controls['email_client'].hasError('required')">
+                        Por favor, introduzca un email válido
+                    </mat-error>
+                    <mat-error *ngIf="trainingForm.controls['email_client'].hasError('required')">
+                        El email es <strong>obligatorio</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email del Entrenador</mat-label>
+                    <input type="email" matInput formControlName="email_trainer"
+                           placeholder="example@example.com">
+                    <mat-error *ngIf="trainingForm.controls['email_trainer'].hasError('email_trainer') &&
+            !trainingForm.controls['email_trainer'].hasError('required')">
+                        Por favor, introduzca un email válido
+                    </mat-error>
+                    <mat-error *ngIf="trainingForm.controls['email_trainer'].hasError('required')">
+                        El email es <strong>obligatorio</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div>
+            <mat-card-subtitle><strong>Ejercicios</strong></mat-card-subtitle>
+
+            <div *ngFor="let e of getExercises.controls; let i=index" formArrayName="exercises">
+                <hr/>
+                <div [formGroupName]="i">
+                    <div formGroupName="exercise" style="font-size: 13px">
+                        <mat-card-subtitle><strong>Ejercicio {{i + 1}}:</strong></mat-card-subtitle>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nombre</mat-label>
+                            <input type="text" matInput formControlName="name"
+                                   placeholder="Name del Ejercicio">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Gif</mat-label>
+                            <input type="text" matInput formControlName="gif"
+                                   placeholder="Gif del Ejercicio">
+                        </mat-form-field>
+                    </div>
+                    <div style="font-size: 13px">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Peso</mat-label>
+                            <input type="text" matInput formControlName="weight"
+                                   placeholder="Peso del Ejercicio">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Series</mat-label>
+                            <input type="number" matInput formControlName="series"
+                                   placeholder="Series del Ejercicio">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Repeticiones</mat-label>
+                            <input type="number" matInput formControlName="repetitions"
+                                   placeholder="Repeticiones del Ejercicio">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+            <hr/>
+
+        </div>
+    </form>
+
+    <div fxLayout="row" fxLayoutAlign="start">
+        <button class="button"
+                (click)="submit()" mat-raised-button
+                color="primary">
+            <mat-icon>add</mat-icon>
+            Crear Tabla
+        </button>
+        <button class="button" type="button" (click)="addExercise()" mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>
+            Añadir Otro Ejercicio
+        </button>
+    </div>
+
+</mat-card>

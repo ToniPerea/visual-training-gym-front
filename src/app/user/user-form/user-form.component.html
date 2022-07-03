@@ -1,7 +1,7 @@
 <mat-card fxLayout="column" fxLayoutAlign="space-evenly center">
     <mat-card-title>{{title}}</mat-card-title>
     <form [formGroup]="userForm" fxLayout="column" fxLayoutAlign="space-evenly center">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Name</mat-label>
             <input type="text" matInput formControlName="name"
                    placeholder="Name and Surname">
@@ -9,7 +9,7 @@
                 Name is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Birth Date</mat-label>
             <input matInput formControlName="age" [matDatepicker]="picker">
             <mat-hint>MM/DD/YYYY</mat-hint>
@@ -19,7 +19,7 @@
                 Birth Date is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input type="email" matInput formControlName="email"
                    placeholder="example@example.com">
@@ -31,14 +31,14 @@
                 Email is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <mat-form-field *ngIf="status === 'register'" appearance="fill">
+        <mat-form-field *ngIf="status === 'register'" appearance="outline">
             <mat-label>Password</mat-label>
             <input type="password" matInput formControlName="password">
             <mat-error *ngIf="userForm.controls['password'].hasError('required')">
                 Password is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Role</mat-label>
             <mat-select formControlName="role">
                 <mat-option *ngFor="let role of roles" [value]="role.value">
