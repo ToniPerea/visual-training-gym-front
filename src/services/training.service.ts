@@ -15,7 +15,6 @@ export class TrainingService {
     }
 
     add(trainingData: Training): Observable<Training> {
-        console.log(trainingData)
         return this.http.post<IJsonObject>('http://localhost:8080/training', Serialize(trainingData, () => Training)).pipe(
             map(training => Deserialize(training, () => Training))
         )

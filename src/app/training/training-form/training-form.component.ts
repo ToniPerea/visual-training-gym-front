@@ -39,8 +39,6 @@ export class TrainingFormComponent implements OnInit {
             ])
         });
 
-        console.log(this.trainingForm.value)
-
     }
 
 
@@ -69,7 +67,6 @@ export class TrainingFormComponent implements OnInit {
 
     addExercise() {
         this.getExercises.push(this.initExerciseCompleteForm());
-        console.log(this.trainingForm.value)
     }
 
     submit(){
