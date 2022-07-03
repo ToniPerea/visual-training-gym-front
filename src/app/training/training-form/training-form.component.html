@@ -1,0 +1,43 @@
+<form [formGroup]="trainingForm">
+    <div>
+        <h2>Training Table</h2>
+
+        <label for="street">Date of training: </label>
+        <input id="street" type="text" formControlName="date_of_training">
+
+        <label for="city">Email client: </label>
+        <input id="city" type="email" formControlName="email_client">
+
+        <label for="state">Email training: </label>
+        <input id="state" type="email" formControlName="email_trainer">
+
+    </div>
+
+    <div>
+        <h2>Exercises</h2>
+        <button type="button" (click)="addExercise()">+ Add another Exercise</button>
+
+        <div *ngFor="let e of getExercises.controls; let i=index" formArrayName="exercises">
+            <div [formGroupName]="i">
+                <div formGroupName="exercise" >
+                    <label>Name:</label>
+                    <input type="text" formControlName="name">
+                    <label>Gif:</label>
+                    <input type="text" formControlName="gif">
+                </div>
+                <label>Weight:</label>
+                <input type="text" formControlName="weight">
+                <label>Series:</label>
+                <input type="number" formControlName="series">
+                <label>Repetitions:</label>
+                <input type="number" formControlName="repetitions">
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<button class="button"
+            (click)="submit()" mat-raised-button
+            color="primary"><mat-icon>add</mat-icon> Añadir
+</button>

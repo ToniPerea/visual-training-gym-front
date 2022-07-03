@@ -22,6 +22,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import { ExerciseFormComponent } from './exercise/exercise-form/exercise-form.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import {AuthModule} from "./auth/auth.module";
+import { TrainingFormComponent } from './training/training-form/training-form.component';
 
 export function playerFactory() {
   return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
@@ -34,7 +35,8 @@ export function playerFactory() {
         HomePageComponent,
         NavbarComponent,
         ExerciseFormComponent,
-        ProfilePageComponent
+        ProfilePageComponent,
+        TrainingFormComponent
     ],
     imports: [
         BrowserModule,
