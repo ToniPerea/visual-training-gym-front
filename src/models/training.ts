@@ -14,7 +14,7 @@ export class Training {
     /**
      * Date of the training
      */
-    @autoserializeAs(() => String) date_of_training: string;
+    @autoserializeAs(() => Date) date_of_training: Date;
 
     /**
      * Client email
@@ -28,7 +28,7 @@ export class Training {
 
     constructor(
         exercises: ExerciseComplete[],
-        date_of_training: string,
+        date_of_training: Date,
         email_client: string,
         email_trainer: string
     ) {

@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TrainingService} from "../../../services/training.service";
-import {Training} from "../../../models/training";
-import {ExerciseComplete} from "../../../models/exerciseComplete";
 
 @Component({
     selector: 'app-training-form',
@@ -25,21 +23,23 @@ export class TrainingFormComponent implements OnInit {
 
     constructor(private builder: FormBuilder, private trainingService: TrainingService) {
         this.trainingForm = this.builder.group({
-            date_of_training: [''],
-            email_client: [''],
-            email_trainer: [''],
+            date_of_training: ['', Validators.required],
+            email_client: ['', Validators.required],
+            email_trainer: ['', Validators.required],
             exercises: this.builder.array([
                 this.builder.group({
                     exercise: this.builder.group({
                         name: [''],
                         gif: ['']
-                    }),
-                    weight: [''],
-                    series: [],
-                    repetitions: [],
+                    }, Validators.required),
+                    weight: ['', Validators.required],
+                    series: ['',Validators.required],
+                    repetitions: ['',Validators.required],
                 })
             ])
         });
+
+        console.log(this.trainingForm.value)
 
     }
 

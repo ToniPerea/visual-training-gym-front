@@ -1,7 +1,7 @@
 <mat-card fxLayout="column" fxLayoutAlign="spacer-around center">
     <form [formGroup]="exerciseForm" fxLayout="column" fxLayoutAlign="space-evenly center">
         <mat-card-title>{{title}}</mat-card-title>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Name</mat-label>
             <input type="text" matInput formControlName="name"
                    placeholder="Name of the Exercise">
@@ -9,7 +9,7 @@
                 Name is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Gif</mat-label>
             <input type="text" matInput formControlName="gif"
                    placeholder="Gif URL">

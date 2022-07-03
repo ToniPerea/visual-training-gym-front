@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../../models/user";
 import {Exercise} from "../../../models/exercise";
 import {ExerciseService} from "../../../services/exercise.service";
 
