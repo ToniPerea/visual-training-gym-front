@@ -20,7 +20,6 @@ export class TrainingsListComponent implements OnInit {
 
     ngOnInit(): void {
         this.trainingService.getTrainingsList().subscribe(trainingsList => {
-            console.log(trainingsList)
             this.trainingsList = trainingsList;
         })
     }

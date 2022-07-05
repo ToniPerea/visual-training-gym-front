@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+
 <div *ngIf="role === roleList.CLIENT" fxLayout="column" fxLayoutAlign="center center">
 
 </div>
@@ -8,12 +9,18 @@
         <div class="container3" fxLayoutAlign="center center">
             <h1>user info</h1>
         </div>
-        <div class="container4" fxLayoutAlign="center center">
+        <div class="container4" fxLayout="column" fxLayoutAlign="center center">
+            <p>Lista de Usuarios</p>
             <app-users-list></app-users-list>
         </div>
     </div>
-    <div class="container2" fxLayoutAlign="center center">
+    <div class="container2" fxLayout="column" fxLayoutAlign="center center">
+            <p>Lista de Entrenamientos</p>
             <app-trainings-list></app-trainings-list>
     </div>
 </div>
+
+<app-footer></app-footer>
+
+
 
