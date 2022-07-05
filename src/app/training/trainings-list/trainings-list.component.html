@@ -1,0 +1,12 @@
+<table class="mat-elevation-z8" mat-table [dataSource]="trainingsList">
+    <ng-container matColumnDef="client">
+        <th *matHeaderCellDef mat-header-cell> Email Cliente</th>
+        <td *matCellDef="let element" mat-cell> {{element.email_client}} </td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+        <th *matHeaderCellDef mat-header-cell> Fecha</th>
+        <td *matCellDef="let element" mat-cell> {{element.date_of_training}} </td>
+    </ng-container>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+</table>

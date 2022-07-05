@@ -26,6 +26,7 @@ import { TrainingFormComponent } from './training/training-form/training-form.co
 import { UsersListComponent } from './user/users-list/users-list.component';
 import {MatTableModule} from "@angular/material/table";
 import { TrainingDetailsComponent } from './training/training-details/training-details.component';
+import { TrainingsListComponent } from './training/trainings-list/trainings-list.component';
 
 export function playerFactory() {
   return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
@@ -41,7 +42,8 @@ export function playerFactory() {
         ProfilePageComponent,
         TrainingFormComponent,
         UsersListComponent,
-        TrainingDetailsComponent
+        TrainingDetailsComponent,
+        TrainingsListComponent
     ],
     imports: [
         BrowserModule,
