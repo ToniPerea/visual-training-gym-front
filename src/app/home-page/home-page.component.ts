@@ -16,6 +16,8 @@ export class HomePageComponent implements OnInit {
         path: '/assets/lotties/trainer.json',
     };
 
+    role = ''
+
     roleList = Roles
 
     currentUser!: User
@@ -27,6 +29,7 @@ export class HomePageComponent implements OnInit {
     ngOnInit(): void {
         this.userService.get(this.authService.getUserInfo().email).subscribe(user => {
             this.currentUser = user
+            this.role = user.role
         })
 
 
