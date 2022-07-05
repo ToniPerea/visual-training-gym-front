@@ -67,7 +67,9 @@ export class UserFormComponent implements OnInit {
 
 
         this.userService.get(this.authService.getUserInfo().email).subscribe((user) => {
-            this.userService.put(user.email, userData).subscribe()
+            this.userService.put(user.email, userData).subscribe(() => {
+                window.location.reload()
+            })
         })
 
     }

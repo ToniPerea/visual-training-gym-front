@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Deserialize, IJsonObject, Serialize} from "dcerialize";
+import {Deserialize, DeserializeArray, IJsonArray, IJsonObject, Serialize} from "dcerialize";
 import {map} from "rxjs/operators";
 import {Training} from "../models/training";
 
@@ -18,6 +18,16 @@ export class TrainingService {
         return this.http.post<IJsonObject>('http://localhost:8080/training', Serialize(trainingData, () => Training)).pipe(
             map(training => Deserialize(training, () => Training))
         )
+    }
+
+    getTrainingsList(): Observable<Array<Training>> {
+        return this.http.get<IJsonArray>(`http://localhost:8080/getTrainingsList`)
+            .pipe(map(trainingsList => DeserializeArray(trainingsList, () => Training)))
+    }
+
+    get(clientEmail: string): Observable<Training> {
+        return this.http.get<IJsonObject>(`http://localhost:8080/getTraining/${clientEmail}`)
+            .pipe(map(training => Deserialize(training, () => Training)))
     }
 
 

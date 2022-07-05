@@ -5,6 +5,6 @@ import {DropDownTuple} from '../interfaces/drop-down-tuple';
  * All roles that can take an user
  */
 export const roleList: DropDownTuple[] = [
-  {value: Roles.CLIENT, label: 'Client'},
-  {value: Roles.TRAINER, label: 'Trainer'}
+  {value: Roles.CLIENT, label: 'Cliente'},
+  {value: Roles.TRAINER, label: 'Entrenador'}
 ];
