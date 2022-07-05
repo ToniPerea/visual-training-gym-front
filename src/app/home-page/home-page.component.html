@@ -1,13 +1,18 @@
 <app-navbar></app-navbar>
 
-<div *ngIf="role === roleList.CLIENT" fxLayout="column" fxLayoutAlign="center center">
+<div *ngIf="currentUser.role === roleList.CLIENT" fxLayout="column" fxLayoutAlign="center center">
 
 </div>
 
-<div *ngIf="role === roleList.TRAINER"  class="container" fxLayout="row">
+<div *ngIf="currentUser.role=== roleList.TRAINER" class="container" fxLayout="row">
     <div class="container1" fxLayout="column" fxLayoutAlign="">
-        <div class="container3" fxLayoutAlign="center center">
-            <h1>user info</h1>
+        <div class="container3" fxLayout="column" fxLayoutAlign="space-evenly center">
+            <mat-card fxLayout="column" fxLayoutAlign="center center">
+                <mat-card-title>{{roleList.TRAINER}}</mat-card-title>
+                <mat-card-content>{{currentUser.name | uppercase}}</mat-card-content>
+                <mat-card-content>{{currentUser.email}}</mat-card-content>
+            </mat-card>
+            <ng-lottie class="lottie-gif" [options]="options"></ng-lottie>
         </div>
         <div class="container4" fxLayout="column" fxLayoutAlign="center center">
             <p>Lista de Usuarios</p>
@@ -15,8 +20,8 @@
         </div>
     </div>
     <div class="container2" fxLayout="column" fxLayoutAlign="center center">
-            <p>Lista de Entrenamientos</p>
-            <app-trainings-list></app-trainings-list>
+        <p>Lista de Entrenamientos</p>
+        <app-trainings-list></app-trainings-list>
     </div>
 </div>
 

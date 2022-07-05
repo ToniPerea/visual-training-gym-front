@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {UserService} from "../../services/user.service";
 import {Roles} from "../../models/roles";
+import {AnimationOptions} from "ngx-lottie";
+import {User} from "../../models/user";
 
 @Component({
     selector: 'app-home-page',
@@ -10,9 +12,13 @@ import {Roles} from "../../models/roles";
 })
 export class HomePageComponent implements OnInit {
 
-    role = ''
+    options: AnimationOptions = {
+        path: '/assets/lotties/trainer.json',
+    };
 
     roleList = Roles
+
+    currentUser!: User
 
     constructor(private authService: AuthService, private userService: UserService) {
 
@@ -20,7 +26,7 @@ export class HomePageComponent implements OnInit {
 
     ngOnInit(): void {
         this.userService.get(this.authService.getUserInfo().email).subscribe(user => {
-            this.role = user.role
+            this.currentUser = user
         })
 
 
