@@ -23,6 +23,8 @@ import { ExerciseFormComponent } from './exercise/exercise-form/exercise-form.co
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import {AuthModule} from "./auth/auth.module";
 import { TrainingFormComponent } from './training/training-form/training-form.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import {MatTableModule} from "@angular/material/table";
 
 export function playerFactory() {
   return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
@@ -36,7 +38,8 @@ export function playerFactory() {
         NavbarComponent,
         ExerciseFormComponent,
         ProfilePageComponent,
-        TrainingFormComponent
+        TrainingFormComponent,
+        UserListComponent
     ],
     imports: [
         BrowserModule,
@@ -56,7 +59,8 @@ export function playerFactory() {
         MatIconModule,
         MatToolbarModule,
         MatMenuModule,
-        AuthModule
+        AuthModule,
+        MatTableModule
     ],
     providers: [],
     bootstrap: [AppComponent]

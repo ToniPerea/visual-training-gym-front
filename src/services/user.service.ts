@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Deserialize, IJsonObject, Serialize} from 'dcerialize';
+import {Deserialize, DeserializeArray, IJsonArray, IJsonObject, Serialize} from 'dcerialize';
 import {map, tap} from 'rxjs/operators';
 import {User} from "../models/user";
 import {JwtResponse} from "../models/jwt-response";
@@ -38,5 +38,10 @@ export class UserService {
     get(userEmail: string): Observable<User> {
         return this.http.get<IJsonObject>(`http://localhost:8080/getUserByEmail/${userEmail}`)
             .pipe(map(user => Deserialize(user, () => User)))
+    }
+
+    getUsersList(): Observable<Array<User>> {
+        return this.http.get<IJsonArray>(`http://localhost:8080/getUsersList`)
+            .pipe(map(usersList => DeserializeArray(usersList, () => User)))
     }
 }
