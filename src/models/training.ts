@@ -6,6 +6,11 @@ export class Training {
     /**
      * All Exercises
      */
+    @autoserializeAs(() => String) _id: string | undefined;
+
+    /**
+     * All Exercises
+     */
     @autoserializeAsArray(() => ExerciseComplete) exercises: ExerciseComplete[];
 
     //ExerciseCOmplete modelo de VERDAD
@@ -30,12 +35,14 @@ export class Training {
         exercises: ExerciseComplete[],
         date_of_training: Date,
         email_client: string,
-        email_trainer: string
+        email_trainer: string,
+        _id?: string
     ) {
         this.exercises = exercises;
         this.date_of_training = date_of_training;
         this.email_client = email_client;
         this.email_trainer = email_trainer;
+        this._id = _id;
     }
 
 

@@ -30,5 +30,10 @@ export class TrainingService {
             .pipe(map(training => Deserialize(training, () => Training)))
     }
 
+    getById(id: string | null): Observable<Training> {
+        return this.http.get<IJsonObject>(`http://localhost:8080/getTrainingByID/${id}`)
+            .pipe(map(training => Deserialize(training, () => Training)))
+    }
+
 
 }

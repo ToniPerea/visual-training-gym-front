@@ -7,6 +7,18 @@
         <th *matHeaderCellDef mat-header-cell> Fecha</th>
         <td *matCellDef="let element" mat-cell> {{element.date_of_training | date :'fullDate'}} </td>
     </ng-container>
+    <ng-container matColumnDef="redirect">
+        <th *matHeaderCellDef mat-header-cell> Info</th>
+        <th *matCellDef="let element" mat-cell>
+
+            <a routerLink="/training/{{element._id}}">
+                <button color="primary" mat-flat-button>
+                    <mat-icon>link</mat-icon>
+                </button>
+            </a>
+        </th>
+    </ng-container>
+
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
     <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 </table>

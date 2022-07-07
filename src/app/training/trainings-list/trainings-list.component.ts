@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../../models/user";
-import {UserService} from "../../../services/user.service";
 import {Training} from "../../../models/training";
 import {TrainingService} from "../../../services/training.service";
 
@@ -13,7 +11,7 @@ export class TrainingsListComponent implements OnInit {
 
   trainingsList!: Training[];
 
-    displayedColumns = ['client', 'date'];
+    displayedColumns = ['client', 'date', 'redirect'];
 
     constructor(private trainingService: TrainingService) {
     }
@@ -22,6 +20,10 @@ export class TrainingsListComponent implements OnInit {
         this.trainingService.getTrainingsList().subscribe(trainingsList => {
             this.trainingsList = trainingsList;
         })
+    }
+
+    prueba(hola: any) {
+        console.log(hola)
     }
 
 }

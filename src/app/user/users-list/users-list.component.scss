@@ -1,0 +1,14 @@
+.mat-cell {
+  padding: 2em;
+}
+
+.mat-header-cell {
+  justify-content: center;
+  text-align: center;
+  padding: 2em;
+}
+
+:host{
+  overflow-y: hidden;
+  max-height: 600px;
+}

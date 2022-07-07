@@ -3,6 +3,10 @@
         <th *matHeaderCellDef mat-header-cell> Nombre</th>
         <td *matCellDef="let element" mat-cell> {{element.name}} </td>
     </ng-container>
+    <ng-container matColumnDef="email">
+        <th *matHeaderCellDef mat-header-cell> Email</th>
+        <td *matCellDef="let element" mat-cell> {{element.email}} </td>
+    </ng-container>
     <ng-container matColumnDef="role">
         <th *matHeaderCellDef mat-header-cell> Role</th>
         <td *matCellDef="let element" mat-cell> {{element.role}} </td>
