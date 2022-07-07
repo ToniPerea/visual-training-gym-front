@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Training} from "../../../models/training";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {TrainingService} from "../../../services/training.service";
@@ -27,7 +27,7 @@ export class TrainingDetailsComponent implements OnInit {
 
     displayedColumns = ['name', 'weight', 'seriesXrepetitions'];
 
-    currentID!: string | null
+    @Input() public currentID?: string | null;
 
     expandedElement!: any;
 
@@ -38,7 +38,7 @@ export class TrainingDetailsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.currentID = this.router.snapshot.paramMap.get('id')
+        console.log(this.currentID)
         this.trainingService.getById(this.currentID).subscribe(training => {
             this.training = training
 

@@ -14,7 +14,7 @@ const routes: Routes = [
     {path: "register", component: RegisterPageComponent},
     {path: "home", component: HomePageComponent, canActivate:[AuthGuard]},
     {path: "profile", component: ProfilePageComponent, canActivate:[AuthGuard]},
-    {path: "training/:id", component: TrainingsDetailsPageComponent, canActivate:[AuthGuard]},
+    {path: "training", component: TrainingsDetailsPageComponent, canActivate:[AuthGuard]},
     {path: "createTraining", component: TrainingsFormPageComponent, canActivate:[AuthGuard]},
     {path: "createExercise", component: ExerciseFormPageComponent, canActivate:[AuthGuard]},
     //{path: "", component:, patchMatch: "full"},
