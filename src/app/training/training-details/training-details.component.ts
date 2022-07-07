@@ -38,7 +38,6 @@ export class TrainingDetailsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log(this.currentID)
         this.trainingService.getById(this.currentID).subscribe(training => {
             this.training = training
 

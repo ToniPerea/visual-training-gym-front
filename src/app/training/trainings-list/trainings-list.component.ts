@@ -22,8 +22,4 @@ export class TrainingsListComponent implements OnInit {
         })
     }
 
-    prueba(hola: any) {
-        console.log(hola)
-    }
-
 }

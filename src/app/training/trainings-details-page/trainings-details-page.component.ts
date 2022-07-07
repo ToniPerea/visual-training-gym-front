@@ -15,13 +15,7 @@ export class TrainingsDetailsPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.activatedRoute
-            .queryParams
-            .subscribe(params => {
-                // Defaults to 0 if no query param provided.
-                this.currentID = params['id']
-                console.log(this.currentID)
-            });
+        this.currentID = window.history.state.id
     }
 
 
