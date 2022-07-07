@@ -1,4 +1,4 @@
-<table class="mat-elevation-z8" mat-table [dataSource]="userList">
+<table mat-table [dataSource]="userList">
     <ng-container matColumnDef="name">
         <th *matHeaderCellDef mat-header-cell> Nombre</th>
         <td *matCellDef="let element" mat-cell> {{element.name}} </td>

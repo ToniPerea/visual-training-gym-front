@@ -28,6 +28,9 @@ import {MatTableModule} from "@angular/material/table";
 import {TrainingDetailsComponent} from './training/training-details/training-details.component';
 import {TrainingsListComponent} from './training/trainings-list/trainings-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { TrainingsDetailsPageComponent } from './training/trainings-details-page/trainings-details-page.component';
+import { TrainingsFormPageComponent } from './training/trainings-form-page/trainings-form-page.component';
+import { ExerciseFormPageComponent } from './exercise/exercise-form-page/exercise-form-page.component';
 
 export function playerFactory() {
     return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
@@ -45,7 +48,10 @@ export function playerFactory() {
         UsersListComponent,
         TrainingDetailsComponent,
         TrainingsListComponent,
-        FooterComponent
+        FooterComponent,
+        TrainingsDetailsPageComponent,
+        TrainingsFormPageComponent,
+        ExerciseFormPageComponent
     ],
     imports: [
         BrowserModule,

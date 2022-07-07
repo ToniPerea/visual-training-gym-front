@@ -1,4 +1,4 @@
-<table class="mat-elevation-z8" mat-table multiTemplateDataRows [dataSource]="exercises">
+<table mat-table multiTemplateDataRows [dataSource]="exercises">
     <ng-container matColumnDef="name">
         <th *matHeaderCellDef mat-header-cell> Ejercicio</th>
         <td *matCellDef="let element" mat-cell> {{element.exercise.name}} </td>

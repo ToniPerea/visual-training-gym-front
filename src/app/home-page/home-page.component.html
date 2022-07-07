@@ -8,11 +8,17 @@
     <div class="container1" fxLayout="column" fxLayoutAlign="">
         <div class="container3" fxLayout="column" fxLayoutAlign="space-evenly center">
             <mat-card fxLayout="column" fxLayoutAlign="center center">
-                <mat-card-title>{{roleList.TRAINER}}</mat-card-title>
-                <mat-card-content>{{currentUser.name | uppercase}}</mat-card-content>
-                <mat-card-content>{{currentUser.email}}</mat-card-content>
+                <mat-card-title>Información del Usuario</mat-card-title>
+                <div fxLayout="row" fxLayoutAlign="space-evenly center">
+                    <div>
+                        <mat-card-content><strong>Nombre del Usuario:</strong> {{currentUser.name | uppercase}}
+                        </mat-card-content>
+                        <mat-card-content><strong>Email del Usuario:</strong> {{currentUser.email}}</mat-card-content>
+                        <mat-card-content><strong>Role del Usuario:</strong> {{currentUser.role}}</mat-card-content>
+                    </div>
+                    <ng-lottie class="lottie-gif" [options]="options"></ng-lottie>
+                </div>
             </mat-card>
-            <ng-lottie class="lottie-gif" [options]="options"></ng-lottie>
         </div>
         <div class="container4" fxLayout="column" fxLayoutAlign="center center">
             <p>Lista de Usuarios</p>
@@ -22,6 +28,9 @@
     <div class="container2" fxLayout="column" fxLayoutAlign="center center">
         <p>Lista de Entrenamientos</p>
         <app-trainings-list></app-trainings-list>
+        <button mat-raised-button color="primary" routerLink="/createTraining">
+            Crear Tabla de Entrenamiento
+        </button>
     </div>
 </div>
 
