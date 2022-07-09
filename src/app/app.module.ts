@@ -31,6 +31,8 @@ import { FooterComponent } from './footer/footer.component';
 import { TrainingsDetailsPageComponent } from './training/trainings-details-page/trainings-details-page.component';
 import { TrainingsFormPageComponent } from './training/trainings-form-page/trainings-form-page.component';
 import { ExerciseFormPageComponent } from './exercise/exercise-form-page/exercise-form-page.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 export function playerFactory() {
     return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
@@ -72,7 +74,9 @@ export function playerFactory() {
         MatToolbarModule,
         MatMenuModule,
         AuthModule,
-        MatTableModule
+        MatTableModule,
+        MatAutocompleteModule,
+        MatTooltipModule
     ],
     providers: [],
     bootstrap: [AppComponent]

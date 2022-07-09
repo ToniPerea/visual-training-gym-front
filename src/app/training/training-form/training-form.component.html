@@ -12,11 +12,17 @@
                     El día es <strong>obligatorio</strong>
                 </mat-error>
             </mat-form-field>
-            <div fxLayout="row" fxLayoutAlign="start">
+            <div fxLayout="column" fxLayoutAlign="start">
                 <mat-form-field appearance="outline">
                     <mat-label>Email del Cliente</mat-label>
-                    <input type="email" matInput formControlName="email_client"
-                           placeholder="example@example.com">
+                    <input type="text" matInput matTooltip="Puedes filtrar por el nombre del cliente"
+                           matTooltipPosition="above"
+                           formControlName="email_client" [matAutocomplete]="auto"/>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let user of filteredUsers | async" [value]="user.email">
+                            {{ user.name }} -- Email: {{user.email}}
+                        </mat-option>
+                    </mat-autocomplete>
                     <mat-error *ngIf="trainingForm.controls['email_client'].hasError('email_client') &&
             !trainingForm.controls['email_client'].hasError('required')">
                         Por favor, introduzca un email válido
