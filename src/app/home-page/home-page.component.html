@@ -1,40 +1,53 @@
-<app-navbar></app-navbar>
-
 <div *ngIf="role === roleList.CLIENT" fxLayout="column" fxLayoutAlign="center center">
 
 </div>
 
-<div *ngIf="role=== roleList.TRAINER" class="container" fxLayout="row">
-    <div class="container1" fxLayout="column" fxLayoutAlign="">
-        <div class="container3" fxLayout="column" fxLayoutAlign="space-evenly center">
-            <mat-card fxLayout="column" fxLayoutAlign="center center">
-                <mat-card-title>Información del Usuario</mat-card-title>
-                <div fxLayout="row" fxLayoutAlign="space-evenly center">
-                    <div>
-                        <mat-card-content><strong>Nombre del Usuario:</strong> {{currentUser.name | uppercase}}
-                        </mat-card-content>
-                        <mat-card-content><strong>Email del Usuario:</strong> {{currentUser.email}}</mat-card-content>
-                        <mat-card-content><strong>Role del Usuario:</strong> {{currentUser.role}}</mat-card-content>
+<div *ngIf="role=== roleList.TRAINER" class="container" fxLayout="column">
+    <div class="navbar-container" fxFlex="7">
+        <app-navbar></app-navbar>
+    </div>
+
+    <div fxLayout="row" fxFlex="86">
+        <div class="container1" fxLayout="column" fxLayoutAlign="">
+            <div class="container3" fxLayout="column" fxLayoutAlign="space-evenly center">
+                <mat-card fxLayout="column" fxLayoutAlign="center center">
+                    <mat-card-title>Información del Usuario</mat-card-title>
+                    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+                        <div>
+                            <mat-card-content><strong>Nombre del Usuario:</strong> {{currentUser.name | uppercase}}
+                            </mat-card-content>
+                            <mat-card-content><strong>Email del Usuario:</strong> {{currentUser.email}}
+                            </mat-card-content>
+                            <mat-card-content><strong>Role del Usuario:</strong> {{currentUser.role}}</mat-card-content>
+                        </div>
+                        <ng-lottie class="lottie-gif" [options]="options"></ng-lottie>
                     </div>
-                    <ng-lottie class="lottie-gif" [options]="options"></ng-lottie>
-                </div>
-            </mat-card>
+                </mat-card>
+            </div>
+            <div class="container4" fxLayout="column" fxLayoutAlign="center center">
+                <p>Lista de Usuarios</p>
+                <app-users-list></app-users-list>
+            </div>
         </div>
-        <div class="container4" fxLayout="column" fxLayoutAlign="center center">
-            <p>Lista de Usuarios</p>
-            <app-users-list></app-users-list>
+        <div class="container2" fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <p>Lista de Entrenamientos</p>
+                <app-trainings-list></app-trainings-list>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+                <button mat-raised-button color="primary" routerLink="/createTraining">
+                    Crear Tabla de Entrenamiento
+                </button>
+            </div>
+
         </div>
     </div>
-    <div class="container2" fxLayout="column" fxLayoutAlign="center center">
-        <p>Lista de Entrenamientos</p>
-        <app-trainings-list></app-trainings-list>
-        <button mat-raised-button color="primary" routerLink="/createTraining">
-            Crear Tabla de Entrenamiento
-        </button>
+
+
+    <div class="footer-container" fxFlex="7">
+        <app-footer></app-footer>
     </div>
 </div>
-
-<app-footer></app-footer>
 
 
 
