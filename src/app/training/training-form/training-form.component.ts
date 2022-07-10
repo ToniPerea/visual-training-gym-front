@@ -6,7 +6,6 @@ import {User} from "../../../models/user";
 import {map} from "rxjs/operators";
 import {UserService} from "../../../services/user.service";
 import {AuthService} from "../../../services/auth.service";
-import {roleList} from "../../../utils/roles";
 import {Roles} from "../../../models/roles";
 import {Exercise} from "../../../models/exercise";
 import {ExerciseService} from "../../../services/exercise.service";
