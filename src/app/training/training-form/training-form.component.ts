@@ -8,6 +8,9 @@ import {UserService} from "../../../services/user.service";
 import {AuthService} from "../../../services/auth.service";
 import {roleList} from "../../../utils/roles";
 import {Roles} from "../../../models/roles";
+import {Exercise} from "../../../models/exercise";
+import {ExerciseService} from "../../../services/exercise.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-training-form',
@@ -31,9 +34,19 @@ export class TrainingFormComponent implements OnInit {
     private userList?: User[];
 
     /**
+     * List of all users
+     */
+    private exerciseList?: Exercise[];
+
+    /**
      * Observable to show the filtred Users
      */
     filteredUsers?: Observable<User[] | undefined> | undefined;
+
+    /**
+     * Observable to show the filtred Exercises
+     */
+    filteredExercises?: Observable<Exercise[] | undefined>;
 
     disabled = true
 
@@ -42,17 +55,19 @@ export class TrainingFormComponent implements OnInit {
     constructor(private builder: FormBuilder,
                 private trainingService: TrainingService,
                 private userService: UserService,
-                private authService: AuthService
+                private authService: AuthService,
+                private exerciseService: ExerciseService,
+                private router: Router
     ) {
         this.trainingForm = this.builder.group({
             date_of_training: ['', Validators.required],
             email_client: ['', Validators.required],
-            email_trainer: ['', Validators.required],
+            email_trainer: [{value: '', disabled: true}, Validators.required],
             exercises: this.builder.array([
                 this.builder.group({
                     exercise: this.builder.group({
-                        name: [''],
-                        gif: ['']
+                        name: ['',Validators.required],
+                        gif: [{value: '', disabled: true}, Validators.required]
                     }, Validators.required),
                     weight: ['', Validators.required],
                     series: ['', Validators.required],
@@ -71,31 +86,53 @@ export class TrainingFormComponent implements OnInit {
             }
         })
 
+        this.exerciseService.getExercisesList().subscribe((response) => {
+            this.exerciseList = response
+            this.filteredExercises = this.trainingForm.get('exercises')?.valueChanges.pipe(
+                startWith(''),
+                map(name => this.filterExercise(name))
+            );
+        })
+
         this.userService.getUsersList().subscribe((response) => {
             this.userList = response
             this.filteredUsers = this.trainingForm.get('email_client')?.valueChanges.pipe(
                 startWith(''),
-                map(email => this._filter(email))
+                map(email => this.filterUser(email))
             );
 
         })
     }
 
-    private _filter(value: string): User[] | undefined {
+    private filterExercise(value: Exercise): Exercise[] | undefined {
+        //const filterValue = value.name;
+
+        return this.exerciseList;
+    }
+
+    private filterUser(value: string): User[] | undefined {
         const filterValue = value.toLowerCase();
 
         return this.userList?.filter(option => option.email?.toLowerCase().includes(filterValue));
     }
 
+    changeGif(index: number){
+        const exerciseToFind = this.exerciseList?.find(
+            element =>
+                element.name == this.trainingForm.get('exercises')?.get(index.toString())?.get('exercise')?.get('name')?.value)
+        this.trainingForm.get('exercises')?.get(index.toString())?.get('exercise')?.get('gif')?.setValue(exerciseToFind?.gif)
+
+    }
+
     initExerciseCompleteForm(): FormGroup {
         return this.builder.group({
             exercise: this.builder.group({
-                name: [''],
-                gif: ['']
+                name: ['', Validators.required],
+                gif: ['', Validators.required]
             }),
-            weight: [''],
-            series: [''],
-            repetitions: [''],
+            weight: ['', Validators.required],
+            series: ['', Validators.required],
+            repetitions: ['', Validators.required],
         })
 
     }
@@ -111,7 +148,11 @@ export class TrainingFormComponent implements OnInit {
     }
 
     submit() {
-        this.trainingService.add(this.trainingForm.value).subscribe()
+        this.trainingForm.get('email_trainer')?.enable()
+        this.trainingForm.get('exercises')?.enable()
+        this.trainingService.add(this.trainingForm.value).subscribe(() => {
+            this.router.navigateByUrl("/home")
+        })
     }
 
 
