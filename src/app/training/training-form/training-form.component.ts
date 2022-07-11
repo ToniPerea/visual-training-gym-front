@@ -127,7 +127,7 @@ export class TrainingFormComponent implements OnInit {
         return this.builder.group({
             exercise: this.builder.group({
                 name: ['', Validators.required],
-                gif: ['', Validators.required]
+                gif: [{value: '', disabled: true}, Validators.required]
             }),
             weight: ['', Validators.required],
             series: ['', Validators.required],
