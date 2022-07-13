@@ -25,6 +25,11 @@ export class TrainingService {
             .pipe(map(trainingsList => DeserializeArray(trainingsList, () => Training)))
     }
 
+    getTrainingsListOneUser(emailClient: string): Observable<Array<Training>> {
+        return this.http.get<IJsonArray>(`http://localhost:8080/getTrainingsListOneUser/${emailClient}`)
+            .pipe(map(trainingsList => DeserializeArray(trainingsList, () => Training)))
+    }
+
     get(clientEmail: string): Observable<Training> {
         return this.http.get<IJsonObject>(`http://localhost:8080/getTraining/${clientEmail}`)
             .pipe(map(training => Deserialize(training, () => Training)))

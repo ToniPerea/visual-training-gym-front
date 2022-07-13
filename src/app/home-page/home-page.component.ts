@@ -12,8 +12,12 @@ import {User} from "../../models/user";
 })
 export class HomePageComponent implements OnInit {
 
-    options: AnimationOptions = {
+    optionsTrainer: AnimationOptions = {
         path: '/assets/lotties/trainer.json',
+    };
+
+    optionsClient: AnimationOptions = {
+        path: '/assets/lotties/client.json',
     };
 
     role = ''

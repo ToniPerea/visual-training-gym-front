@@ -4,7 +4,7 @@ import {ExerciseComplete} from "./exerciseComplete";
 
 export class Training {
     /**
-     * All Exercises
+     * ID
      */
     @autoserializeAs(() => String) _id: string | undefined;
 

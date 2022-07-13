@@ -5,6 +5,10 @@ import {
 
 export class User {
     /**
+     * ID
+     */
+    @autoserializeAs(() => String) _id: string | undefined;
+    /**
      * User name
      */
     @autoserializeAs(() => String) name: string;
@@ -41,7 +45,8 @@ export class User {
         email: string | null,
         password: string | null,
         role: string,
-        status: string
+        status: string,
+        _id?: string
     ) {
         this.name = name;
         this.age = age;
@@ -49,6 +54,7 @@ export class User {
         this.password = password;
         this.role = role;
         this.status = status;
+        this._id = _id;
     }
 
 }
