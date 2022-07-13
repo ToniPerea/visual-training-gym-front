@@ -1,7 +1,7 @@
 <div class="page" fxLayout="row" fxLayoutAlign="center center">
     <div fxLayout="column" fxLayoutAlign="center center" class="container-login">
-        <p>Inicia Sesión en tu Cuenta</p>
-        <mat-card fxLayout="column" fxLayoutAlign="space-evenly center">
+        <p>Inicia Sesión</p>
+        <mat-card fxLayout="column" class="container-login" fxLayoutAlign="space-evenly center">
             <ng-lottie class="lottie-gif" [options]="options" ></ng-lottie>
             <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="space-evenly center">
                 <mat-form-field appearance="outline">
@@ -27,7 +27,6 @@
             <button class="button" (click)="login()" mat-raised-button color="primary">Login</button>
             <div fxLayout="row" fxLayoutAlign="space-around center">
                 <button class="button" routerLink="/register" mat-raised-button color="primary">Create Account</button>
-                <button class="button" mat-raised-button color="primary">Forgot Password</button>
             </div>
         </mat-card>
         <p class="powered-title">Powered by

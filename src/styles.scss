@@ -1,5 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+
+@import "https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap";
+$noo-typography: mat.define-typography-config(
+  $font-family: 'Poppins'
+);
+
 
 body{
   margin:0
@@ -14,3 +27,23 @@ body{
 .mat-form-field{
   margin: 5px
 }
+
+.navbar-container{
+  width: 100%;
+}
+
+.footer-container{
+  width: 100%;
+}
+
+html, body { height: 100%; }
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat.typography-hierarchy($noo-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat.checkbox-typography($noo-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include mat.all-component-typographies($noo-typography);
+

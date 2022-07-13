@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {UserService} from "../../../services/user.service";
 import {AnimationOptions} from "ngx-lottie";
 import {Router} from "@angular/router";
 import {MatIconRegistry} from "@angular/material/icon";

@@ -1,0 +1,14 @@
+:host{
+  overflow-y: auto;
+  max-height: 320px;
+}
+
+.mat-cell {
+  padding: 2em;
+}
+
+.mat-header-cell {
+  justify-content: center;
+  text-align: center;
+  padding: 2em;
+}

@@ -1,6 +1,10 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="navbar" color="primary">
     <mat-toolbar-row>
-        <span>VTGYM</span>
+        <span style="cursor: pointer" routerLink="/home">VTGYM</span>
+        <span class="spacer"></span>
+        <button *ngIf="role === roleList.TRAINER" mat-raised-button color="accent" routerLink="/createExercise">
+            <span>Crear Ejercicio</span>
+        </button>
         <span class="spacer"></span>
         <button mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>account_circle</mat-icon>

@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Training} from "../../../models/training";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {TrainingService} from "../../../services/training.service";
 import {UserService} from "../../../services/user.service";
 import {AuthService} from "../../../services/auth.service";
 import {ExerciseComplete} from "../../../models/exerciseComplete";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-training-details',
@@ -26,15 +27,18 @@ export class TrainingDetailsComponent implements OnInit {
 
     displayedColumns = ['name', 'weight', 'seriesXrepetitions'];
 
+    @Input() public currentID?: string | null;
+
     expandedElement!: any;
 
     constructor(private trainingService: TrainingService,
                 private userService: UserService,
-                private authService: AuthService) {
+                private authService: AuthService,
+                private router: ActivatedRoute) {
     }
 
     ngOnInit(): void {
-        this.trainingService.get(this.authService.getUserInfo().email).subscribe(training => {
+        this.trainingService.getById(this.currentID).subscribe(training => {
             this.training = training
 
             this.exercises = training.exercises

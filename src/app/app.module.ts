@@ -12,24 +12,30 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {LottieModule} from "ngx-lottie";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from '@angular/material/core';
-import { RegisterPageComponent } from './register-page/register-page.component';
+import {RegisterPageComponent} from './register-page/register-page.component';
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
-import { HomePageComponent } from './home-page/home-page.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import {HomePageComponent} from './home-page/home-page.component';
+import {NavbarComponent} from './navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
-import { ExerciseFormComponent } from './exercise/exercise-form/exercise-form.component';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
+import {ExerciseFormComponent} from './exercise/exercise-form/exercise-form.component';
+import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {AuthModule} from "./auth/auth.module";
-import { TrainingFormComponent } from './training/training-form/training-form.component';
-import { UsersListComponent } from './user/users-list/users-list.component';
+import {TrainingFormComponent} from './training/training-form/training-form.component';
+import {UsersListComponent} from './user/users-list/users-list.component';
 import {MatTableModule} from "@angular/material/table";
-import { TrainingDetailsComponent } from './training/training-details/training-details.component';
-import { TrainingsListComponent } from './training/trainings-list/trainings-list.component';
+import {TrainingDetailsComponent} from './training/training-details/training-details.component';
+import {TrainingsListComponent} from './training/trainings-list/trainings-list.component';
+import { FooterComponent } from './footer/footer.component';
+import { TrainingsDetailsPageComponent } from './training/trainings-details-page/trainings-details-page.component';
+import { TrainingsFormPageComponent } from './training/trainings-form-page/trainings-form-page.component';
+import { ExerciseFormPageComponent } from './exercise/exercise-form-page/exercise-form-page.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 export function playerFactory() {
-  return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
+    return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
 }
 
 @NgModule({
@@ -43,7 +49,11 @@ export function playerFactory() {
         TrainingFormComponent,
         UsersListComponent,
         TrainingDetailsComponent,
-        TrainingsListComponent
+        TrainingsListComponent,
+        FooterComponent,
+        TrainingsDetailsPageComponent,
+        TrainingsFormPageComponent,
+        ExerciseFormPageComponent
     ],
     imports: [
         BrowserModule,
@@ -64,7 +74,9 @@ export function playerFactory() {
         MatToolbarModule,
         MatMenuModule,
         AuthModule,
-        MatTableModule
+        MatTableModule,
+        MatAutocompleteModule,
+        MatTooltipModule
     ],
     providers: [],
     bootstrap: [AppComponent]
