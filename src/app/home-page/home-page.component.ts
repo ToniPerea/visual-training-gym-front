@@ -1,42 +1,36 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../services/auth.service";
-import {UserService} from "../../services/user.service";
-import {Roles} from "../../models/roles";
-import {AnimationOptions} from "ngx-lottie";
-import {User} from "../../models/user";
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
+import { Roles } from '../../models/roles';
+import { AnimationOptions } from 'ngx-lottie';
+import { User } from '../../models/user';
 
 @Component({
-    selector: 'app-home-page',
-    templateUrl: './home-page.component.html',
-    styleUrls: ['./home-page.component.scss']
+  selector: 'app-home-page',
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  optionsTrainer: AnimationOptions = {
+    path: '/assets/lotties/trainer.json'
+  };
 
-    optionsTrainer: AnimationOptions = {
-        path: '/assets/lotties/trainer.json',
-    };
+  optionsClient: AnimationOptions = {
+    path: '/assets/lotties/client.json'
+  };
 
-    optionsClient: AnimationOptions = {
-        path: '/assets/lotties/client.json',
-    };
+  role = '';
 
-    role = ''
+  roleList = Roles;
 
-    roleList = Roles
+  currentUser!: User;
 
-    currentUser!: User
+  constructor(private authService: AuthService, private userService: UserService) {}
 
-    constructor(private authService: AuthService, private userService: UserService) {
-
-    }
-
-    ngOnInit(): void {
-        this.userService.get(this.authService.getUserInfo().email).subscribe(user => {
-            this.currentUser = user
-            this.role = user.role
-        })
-
-
-    }
-
+  ngOnInit(): void {
+    this.userService.get(this.authService.getUserInfo().email).subscribe((user) => {
+      this.currentUser = user;
+      this.role = user.role;
+    });
+  }
 }

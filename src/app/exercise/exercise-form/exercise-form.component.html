@@ -1,32 +1,26 @@
 <mat-card fxLayout="column" fxLayoutAlign="spacer-around center">
-    <form [formGroup]="exerciseForm" fxLayout="column" fxLayoutAlign="space-evenly center">
-        <mat-card-title>{{title}}</mat-card-title>
-        <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
-            <input type="text" matInput formControlName="name"
-                   placeholder="Name of the Exercise">
-            <mat-error *ngIf="exerciseForm.controls['name'].hasError('required')">
-                Name is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Gif</mat-label>
-            <input type="text" matInput formControlName="gif"
-                   placeholder="Gif URL">
-            <mat-error *ngIf="exerciseForm.controls['gif'].hasError('required')">
-                Gif is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
-    </form>
-    <button class="button"
-            (click)="submit()" mat-raised-button
-            color="primary"><mat-icon>add</mat-icon> Añadir</button>
-    <button class="button"
-            *ngIf="status === 'update'"
-            (click)="submit()" mat-raised-button
-            color="primary"><mat-icon>sync</mat-icon> Actualizar</button>
-    <button class="button"
-            *ngIf="status === 'delete'"
-            (click)="submit()" mat-raised-button
-            color="accent"><mat-icon>delete</mat-icon> Eliminar</button>
+  <form [formGroup]="exerciseForm" fxLayout="column" fxLayoutAlign="space-evenly center">
+    <mat-card-title>{{ title }}</mat-card-title>
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name" placeholder="Name of the Exercise" />
+      <mat-error *ngIf="exerciseForm.controls['name'].hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Gif</mat-label>
+      <input type="text" matInput formControlName="gif" placeholder="Gif URL" />
+      <mat-error *ngIf="exerciseForm.controls['gif'].hasError('required')">
+        Gif is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <button class="button" (click)="submit()" mat-raised-button color="primary"><mat-icon>add</mat-icon> Añadir</button>
+  <button class="button" *ngIf="status === 'update'" (click)="submit()" mat-raised-button color="primary">
+    <mat-icon>sync</mat-icon> Actualizar
+  </button>
+  <button class="button" *ngIf="status === 'delete'" (click)="submit()" mat-raised-button color="accent">
+    <mat-icon>delete</mat-icon> Eliminar
+  </button>
 </mat-card>

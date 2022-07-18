@@ -1,23 +1,23 @@
 <mat-toolbar class="navbar" color="primary">
-    <mat-toolbar-row>
-        <span style="cursor: pointer" routerLink="/home">VTGYM</span>
-        <span class="spacer"></span>
-        <button *ngIf="role === roleList.TRAINER" mat-raised-button color="accent" routerLink="/createExercise">
-            <span>Crear Ejercicio</span>
-        </button>
-        <span class="spacer"></span>
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>account_circle</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button routerLink="/auth/profile" mat-menu-item>
-                <mat-icon>badge</mat-icon>
-                <span>Perfil</span>
-            </button>
-            <button (click)="logOut()" mat-menu-item routerLink="">
-                <mat-icon>logout</mat-icon>
-                <span>Cerrar Sesión</span>
-            </button>
-        </mat-menu>
-    </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span style="cursor: pointer" routerLink="/home">VTGYM</span>
+    <span class="spacer"></span>
+    <button *ngIf="role === roleList.TRAINER" mat-raised-button color="accent" routerLink="/createExercise">
+      <span>Crear Ejercicio</span>
+    </button>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button routerLink="/auth/profile" mat-menu-item>
+        <mat-icon>badge</mat-icon>
+        <span>Perfil</span>
+      </button>
+      <button (click)="logOut()" mat-menu-item routerLink="">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar Sesión</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
 </mat-toolbar>

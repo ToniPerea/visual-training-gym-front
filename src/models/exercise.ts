@@ -1,24 +1,18 @@
-import {autoserializeAs} from "dcerialize";
-
+import { autoserializeAs } from 'dcerialize';
 
 export class Exercise {
-    /**
-     * User name
-     */
-    @autoserializeAs(() => String) name: string;
+  /**
+   * User name
+   */
+  @autoserializeAs(() => String) name: string;
 
-    /**
-     * User age
-     */
-    @autoserializeAs(() => String) gif: string;
+  /**
+   * User age
+   */
+  @autoserializeAs(() => String) gif: string;
 
-    constructor(
-        name: string,
-        gif: string
-    ) {
-        this.name = name;
-        this.gif = gif;
-    }
-
-
+  constructor(name: string, gif: string) {
+    this.name = name;
+    this.gif = gif;
+  }
 }
