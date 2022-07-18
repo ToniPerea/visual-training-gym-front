@@ -7,36 +7,35 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-
-@import "https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap";
+@import 'https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap';
 $noo-typography: mat.define-typography-config(
   $font-family: 'Poppins'
 );
 
-
-body{
-  margin:0
+body {
+  margin: 0;
 }
 
-.mat-card:not([class*=mat-elevation-z]) {
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,1),
-                0 1px 1px 0 rgba(0,0,0,1),
-                0 1px 3px 0 rgba(0,0,0,1);
+.mat-card:not([class*='mat-elevation-z']) {
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 1), 0 1px 1px 0 rgba(0, 0, 0, 1), 0 1px 3px 0 rgba(0, 0, 0, 1);
 }
 
-.mat-form-field{
-  margin: 5px
+.mat-form-field {
+  margin: 5px;
 }
 
-.navbar-container{
+.navbar-container {
   width: 100%;
 }
 
-.footer-container{
+.footer-container {
   width: 100%;
 }
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 
 // Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
 @include mat.typography-hierarchy($noo-typography);
@@ -46,4 +45,3 @@ html, body { height: 100%; }
 
 // Override typography for all Angular Material, including mat-base-typography and all components.
 @include mat.all-component-typographies($noo-typography);
-

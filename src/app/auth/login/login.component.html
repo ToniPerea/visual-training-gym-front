@@ -1,37 +1,38 @@
 <div class="page" fxLayout="row" fxLayoutAlign="center center">
-    <div fxLayout="column" fxLayoutAlign="center center" class="container-login">
-        <p>Inicia Sesión</p>
-        <mat-card fxLayout="column" class="container-login" fxLayoutAlign="space-evenly center">
-            <ng-lottie class="lottie-gif" [options]="options" ></ng-lottie>
-            <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="space-evenly center">
-                <mat-form-field appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input type="email" matInput formControlName="email"
-                           placeholder="example@example.com">
-                    <mat-error *ngIf="loginForm.controls['email'].hasError('email') &&
-                     !loginForm.controls['email'].hasError('required')">
-                        Please enter a valid email address
-                    </mat-error>
-                    <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
-                        Email is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input type="password" matInput formControlName="password">
-                    <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
-                        Password is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </form>
-            <button class="button" (click)="login()" mat-raised-button color="primary">Login</button>
-            <div fxLayout="row" fxLayoutAlign="space-around center">
-                <button class="button" routerLink="/register" mat-raised-button color="primary">Create Account</button>
-            </div>
-        </mat-card>
-        <p class="powered-title">Powered by
-            <mat-icon svgIcon="angular-logo"></mat-icon>
-            <strong> Angular</strong></p>
-    </div>
+  <div fxLayout="column" fxLayoutAlign="center center" class="container-login">
+    <p>Inicia Sesión</p>
+    <mat-card fxLayout="column" class="container-login" fxLayoutAlign="space-evenly center">
+      <ng-lottie class="lottie-gif" [options]="options"></ng-lottie>
+      <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="space-evenly center">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="example@example.com" />
+          <mat-error
+            *ngIf="loginForm.controls['email'].hasError('email') && !loginForm.controls['email'].hasError('required')"
+          >
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" />
+          <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <button class="button" (click)="login()" mat-raised-button color="primary">Login</button>
+      <div fxLayout="row" fxLayoutAlign="space-around center">
+        <button class="button" routerLink="/register" mat-raised-button color="primary">Create Account</button>
+      </div>
+    </mat-card>
+    <p class="powered-title">
+      Powered by
+      <mat-icon svgIcon="angular-logo"></mat-icon>
+      <strong> Angular</strong>
+    </p>
+  </div>
 </div>
-
