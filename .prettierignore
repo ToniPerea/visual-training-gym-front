@@ -1,0 +1,24 @@
+# Specifies intentionally untracked files to ignore when using Prettier
+# https://prettier.io/docs/en/ignore.html
+
+*~
+*.sw[mnpcod]
+.tmp
+*.tmp
+*.tmp.*
+$RECYCLE.BIN/
+
+*.log
+log.txt
+npm-debug.log*
+
+/.idea
+/.sass-cache
+/.sourcemaps
+/.versions
+/.vscode
+/coverage
+/e2e
+/node_modules
+/resources
+.eslintrc.json
