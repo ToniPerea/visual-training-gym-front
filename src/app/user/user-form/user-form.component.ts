@@ -5,6 +5,7 @@ import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../../services/auth.service';
+import {CustomSnackbarService} from '../../../services/custom-snackbar.service';
 
 @Component({
   selector: 'app-user-form',
@@ -28,7 +29,10 @@ export class UserFormComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(private builder: FormBuilder, private userService: UserService, private authService: AuthService) {
+  constructor(private builder: FormBuilder,
+              private userService: UserService,
+              private authService: AuthService,
+              private snackBarService: CustomSnackbarService) {
     this.userForm = this.builder.group({
       name: new FormControl('', Validators.required),
       age: new FormControl('', [Validators.required]),
@@ -63,7 +67,9 @@ export class UserFormComponent implements OnInit {
       'pending'
     );
 
-    this.userService.register(userData).subscribe();
+    this.userService.register(userData).subscribe(() => {
+      this.snackBarService.present('Cuenta creada correctamente')
+    });
   }
 
   submitUpdate() {
