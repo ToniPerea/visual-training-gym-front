@@ -11,8 +11,7 @@ import {JwtResponse} from '../models/jwt-response';
     providedIn: 'root'
 })
 export class UserService {
-    constructor(private http: HttpClient,
-                private snackbarService: CustomSnackbarService) {
+    constructor(private http: HttpClient, private snackbarService: CustomSnackbarService) {
     }
 
     register(userData: User): Observable<User> {
