@@ -39,7 +39,8 @@ export class UserService {
                         localStorage.setItem('ACCESS_TOKEN', res.dataUser.accessToken);
                         localStorage.setItem('EXPIRES_IN', res.dataUser.expiresIn);
                     }
-                })
+                }),
+                catchError((err: HttpErrorResponse) => this.snackbarService.showError(err))
             );
     }
 
