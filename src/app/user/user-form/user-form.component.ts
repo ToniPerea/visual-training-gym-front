@@ -83,7 +83,7 @@ export class UserFormComponent implements OnInit {
 
         this.userService.get(this.authService.getUserInfo().email).subscribe((user) => {
             this.userService.put(user.email, userData).subscribe(() => {
-                setTimeout(function (){window.location.reload()}, 2000);
+                setTimeout(function (){window.location.reload()}, 1500);
                 this.snackBarService.present('Datos correctamente actualizados')
             });
         });
