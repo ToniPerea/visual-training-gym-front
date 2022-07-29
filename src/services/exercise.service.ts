@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Exercise } from '../models/exercise';
-import { Observable } from 'rxjs';
+import {catchError, Observable} from 'rxjs';
 import { Deserialize, DeserializeArray, IJsonArray, IJsonObject, Serialize } from 'dcerialize';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
+import {CustomSnackbarService} from './custom-snackbar.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExerciseService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private snackbarService: CustomSnackbarService) {}
 
   add(exerciseData: Exercise): Observable<Exercise> {
     return this.http
@@ -18,7 +19,8 @@ export class ExerciseService {
         'http://localhost:8080/exercise',
         Serialize(exerciseData, () => Exercise)
       )
-      .pipe(map((exercise) => Deserialize(exercise, () => Exercise)));
+      .pipe(map((exercise) => Deserialize(exercise, () => Exercise)),
+          catchError((err: HttpErrorResponse) => this.snackbarService.showError(err)));
   }
 
   get(exerciseID: string): Observable<Exercise> {

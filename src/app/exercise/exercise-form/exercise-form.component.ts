@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Exercise } from '../../../models/exercise';
 import { ExerciseService } from '../../../services/exercise.service';
+import {CustomSnackbarService} from '../../../services/custom-snackbar.service';
 
 @Component({
   selector: 'app-exercise-form',
@@ -21,7 +22,9 @@ export class ExerciseFormComponent implements OnInit {
 
   exerciseForm: FormGroup;
 
-  constructor(private builder: FormBuilder, private exerciseService: ExerciseService) {
+  constructor(private builder: FormBuilder,
+              private exerciseService: ExerciseService,
+              private snackBarService: CustomSnackbarService) {
     this.exerciseForm = this.builder.group({
       name: new FormControl('', Validators.required),
       gif: new FormControl('', Validators.required)
@@ -33,6 +36,8 @@ export class ExerciseFormComponent implements OnInit {
   submit() {
     const exerciseData = new Exercise(this.exerciseForm.value.name, this.exerciseForm.value.gif);
 
-    this.exerciseService.add(exerciseData).subscribe();
+    this.exerciseService.add(exerciseData).subscribe(() => {
+      this.snackBarService.present('Ejercicio Creado Correctamente')
+    });
   }
 }

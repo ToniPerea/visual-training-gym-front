@@ -34,3 +34,13 @@ p {
 .lottie-gif {
   width: 35%;
 }
+
+.table-users {
+  overflow-y: auto;
+  max-height: 320px;
+}
+
+.table-trainings {
+  overflow-y: auto;
+  max-height: 500px;
+}
