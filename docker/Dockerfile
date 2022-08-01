@@ -1,5 +1,5 @@
 # docker build -t vtg/front .  -f docker/Dockerfile
-# docker run -it -p 80:80 vtg/fcdront
+# docker run -it -p 80:80 vtg/front
 
 FROM node:18.4.0 as builder
 WORKDIR /home/node
