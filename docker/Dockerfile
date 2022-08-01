@@ -1,4 +1,4 @@
-# docker build -t vtg/front .  -f docker/Dockerfile
+# docker build ==platform=amd64 -t vtg/front .  -f docker/Dockerfile
 # docker run -it -p 80:80 vtg/front
 
 FROM node:18.4.0 as builder
