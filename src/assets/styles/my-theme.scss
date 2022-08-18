@@ -1,41 +1,106 @@
-@import '~@angular/material/theming';
-
 @use '@angular/material' as mat;
 
 @include mat.core();
 
 // GAMA DE COLORES
+
 $my-primary-color: (
-        200 : #ac80ff,
-        500 : #5800ff,
-        700 : #4700ff,
-        contrast: (
-                200 : #000000,
-                500 : #ffffff,
-                700 : #ffffff,
-        )
+    50 : #ebe0ff,
+    100 : #cdb3ff,
+    200 : #ac80ff,
+    300 : #8a4dff,
+    400 : #7126ff,
+    500 : #5800ff,
+    600 : #5000ff,
+    700 : #4700ff,
+    800 : #3d00ff,
+    900 : #2d00ff,
+    A100 : #ffffff,
+    A200 : #f4f2ff,
+    A400 : #c7bfff,
+    A700 : #b0a6ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
 );
 
 $my-accent-color: (
-        200 : #80ebff,
-        500 : #00d7ff,
-        700 : #00cdff,
-        contrast: (
-                200 : #000000,
-                500 : #000000,
-                700 : #000000,
-        )
+    50 : #e0f2ff,
+    100 : #b3e0ff,
+    200 : #80cbff,
+    300 : #4db6ff,
+    400 : #26a6ff,
+    500 : #0096ff,
+    600 : #008eff,
+    700 : #0083ff,
+    800 : #0079ff,
+    900 : #0068ff,
+    A100 : #ffffff,
+    A200 : #f2f7ff,
+    A400 : #bfd5ff,
+    A700 : #a6c5ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
 );
 
 $my-warn-color: (
-        200 : #ac80ff,
-        500 : #5800ff,
-        700 : #4700ff,
-        contrast: (
-                200 : #000000,
-                500 : #ffffff,
-                700 : #ffffff,
-        )
+  50 : #ffe5e1,
+  100 : #ffbeb4,
+  200 : #ff9282,
+  300 : #ff664f,
+  400 : #ff462a,
+  500 : #ff2504,
+  600 : #ff2103,
+  700 : #ff1b03,
+  800 : #ff1602,
+  900 : #ff0d01,
+  A100 : #ffffff,
+  A200 : #fff3f2,
+  A400 : #ffc1bf,
+  A700 : #ffa7a6,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
 );
 
 // PALETA DE COLORES
@@ -53,4 +118,4 @@ $my-theme: mat.define-light-theme((
 ));
 
 // APLICAR NUESTRO TEMA A ANGULAR
-@include mat.angular-material-theme($my-theme);
+@include mat.all-component-themes($my-theme);
