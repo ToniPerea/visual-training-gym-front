@@ -5,7 +5,7 @@
 @include mat.core();
 
 // GAMA DE COLORES
-$my-prymary-color: (
+$my-primary-color: (
         200 : #ac80ff,
         500 : #5800ff,
         700 : #4700ff,
@@ -39,7 +39,7 @@ $my-warn-color: (
 );
 
 // PALETA DE COLORES
-$my-palette-primary: mat.define-palette($my-prymary-color);
+$my-palette-primary: mat.define-palette($my-primary-color);
 $my-palette-accent: mat.define-palette($my-accent-color);
 $my-palette-warn: mat.define-palette($my-warn-color);
 
