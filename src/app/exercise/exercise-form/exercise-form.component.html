@@ -16,11 +16,11 @@
       </mat-error>
     </mat-form-field>
   </form>
-  <button class="button" (click)="submit()" mat-raised-button color="primary"><mat-icon>add</mat-icon> Añadir</button>
-  <button class="button" *ngIf="status === 'update'" (click)="submit()" mat-raised-button color="primary">
+  <button class="button" (click)="submit()" mat-raised-button color="accent"><mat-icon>add</mat-icon> Añadir</button>
+  <button class="button" *ngIf="status === 'update'" (click)="submit()" mat-raised-button color="accent">
     <mat-icon>sync</mat-icon> Actualizar
   </button>
-  <button class="button" *ngIf="status === 'delete'" (click)="submit()" mat-raised-button color="accent">
+  <button class="button" *ngIf="status === 'delete'" (click)="submit()" mat-raised-button color="warn">
     <mat-icon>delete</mat-icon> Eliminar
   </button>
 </mat-card>
