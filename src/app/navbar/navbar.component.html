@@ -1,7 +1,7 @@
 <mat-toolbar class="navbar" color="primary">
   <mat-toolbar-row>
-    <span style="cursor: pointer" routerLink="/home">VTGYM</span>
-    <span class="spacer"></span>
+    <img class="logo-navbar" src="/assets/logo/Imagotipo_H_Color.png" style="cursor: pointer" routerLink="/home">
+    <!--<span class="spacer"></span>-->
     <button *ngIf="role === roleList.TRAINER" mat-raised-button color="accent" routerLink="/createExercise">
       <span>Crear Ejercicio</span>
     </button>
