@@ -3,8 +3,8 @@
         <app-navbar></app-navbar>
     </div>
 
-    <div fxLayout="row" fxFlex="86">
-        <div class="container1" fxLayout="column" fxLayoutAlign="space-evenly center">
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-evenly center">
+        <div class="info-container" fxLayout="column" fxFlex="40" fxLayoutAlign="space-evenly center">
             <mat-card fxLayout="column" fxLayoutAlign="center center">
                 <mat-card-title>Información del Usuario</mat-card-title>
                 <div fxLayout="row" fxLayoutAlign="space-evenly center">
@@ -19,7 +19,7 @@
                 </div>
             </mat-card>
         </div>
-        <div class="container2" fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center">
+        <div class="trainings-list" fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center">
             <div fxLayout="column" fxLayoutAlign="center center">
                 <p>Lista de Entrenamientos</p>
                 <mat-card class="table-trainings">
@@ -38,46 +38,6 @@
     <div class="navbar-container" fxFlex="7">
         <app-navbar></app-navbar>
     </div>
-
-    <!--<div fxLayout="row" fxFlex="86">
-        <div class="container1" fxLayout="column" fxLayoutAlign="">
-            <div class="container3" fxLayout="column" fxLayoutAlign="space-evenly center">
-                <mat-card fxLayout="column" fxLayoutAlign="center center">
-                    <mat-card-title>Información del Usuario</mat-card-title>
-                    <div fxLayout="row" fxLayoutAlign="space-evenly center">
-                        <div>
-                            <mat-card-content
-                            ><strong>Nombre del Usuario:</strong> {{ currentUser.name | uppercase }}
-                            </mat-card-content>
-                            <mat-card-content><strong>Email del Usuario:</strong> {{ currentUser.email }}
-                            </mat-card-content>
-                            <mat-card-content><strong>Role del Usuario:</strong> {{ currentUser.role }}
-                            </mat-card-content>
-                        </div>
-                        <ng-lottie class="lottie-gif" [options]="optionsTrainer"></ng-lottie>
-                    </div>
-                </mat-card>
-            </div>
-            <div class="container4" fxLayout="column" fxLayoutAlign="center center">
-                <p>Lista de Usuarios</p>
-                <mat-card class="table-users">
-                    <app-users-list></app-users-list>
-                </mat-card>
-            </div>
-        </div>
-        <div class="container2" fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center">
-            <div fxLayout="column" fxLayoutAlign="center center">
-                <p>Lista de Entrenamientos</p>
-                <mat-card class="table-trainings">
-                    <app-trainings-list [status]="role"></app-trainings-list>
-                </mat-card>
-            </div>
-            <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-                <button mat-raised-button color="accent" routerLink="/createTraining">Crear Tabla de Entrenamiento
-                </button>
-            </div>
-        </div>
-    </div>-->
 
     <div fxLayout="column" fxFlex="100">
         <div class="info-container" fxFlex="40%" fxLayoutAlign="center center">
