@@ -39,7 +39,7 @@
         <app-navbar></app-navbar>
     </div>
 
-    <div fxLayout="row" fxFlex="86">
+    <!--<div fxLayout="row" fxFlex="86">
         <div class="container1" fxLayout="column" fxLayoutAlign="">
             <div class="container3" fxLayout="column" fxLayoutAlign="space-evenly center">
                 <mat-card fxLayout="column" fxLayoutAlign="center center">
@@ -75,6 +75,37 @@
             <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
                 <button mat-raised-button color="accent" routerLink="/createTraining">Crear Tabla de Entrenamiento
                 </button>
+            </div>
+        </div>
+    </div>-->
+
+    <div fxLayout="column" fxFlex="100">
+        <div class="info-container" fxFlex="40%" fxLayoutAlign="center center">
+            <mat-card fxLayout="column" fxLayoutAlign="center center" fxFlex="30%">
+                <mat-card-title>Información del Usuario</mat-card-title>
+                <div fxLayout="row" fxLayoutAlign="space-evenly center">
+                    <div>
+                        <mat-card-content
+                        ><strong>Nombre del Usuario:</strong> {{ currentUser.name | uppercase }}
+                        </mat-card-content>
+                        <mat-card-content><strong>Email del Usuario:</strong> {{ currentUser.email }}
+                        </mat-card-content>
+                        <mat-card-content><strong>Role del Usuario:</strong> {{ currentUser.role }}
+                        </mat-card-content>
+                    </div>
+                    <ng-lottie class="lottie-gif" [options]="optionsTrainer"></ng-lottie>
+                </div>
+            </mat-card>
+
+        </div>
+        <div class="lists-container" fxFlex="60%">
+            <div fxLayout="row">
+                <div style="background: pink" fxFlex="50%">
+                    <p>Hola</p>
+                </div>
+                <div style="background: purple" fxFlex="50%">
+                    <p>Hola</p>
+                </div>
             </div>
         </div>
     </div>
