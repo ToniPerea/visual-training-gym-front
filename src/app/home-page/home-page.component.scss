@@ -3,28 +3,6 @@
   height: 100%;
 }
 
-.container1 {
-  background: #f7f7f7;
-  width: 50%;
-  height: 100%;
-}
-
-.container2 {
-  background: #f7f7f7;
-  width: 50%;
-  height: 100%;
-}
-
-.container3 {
-  background: #f7f7f7;
-  height: 40%;
-}
-
-.container4 {
-  background: #f7f7f7;
-  height: 60%;
-}
-
 p {
   font-size: x-large;
   margin-bottom: 30px;
@@ -37,7 +15,7 @@ p {
 
 .table-users {
   overflow-y: auto;
-  max-height: 320px;
+  max-height: 300px;
 }
 
 .table-trainings {
@@ -45,10 +23,20 @@ p {
   max-height: 500px;
 }
 
-.info-container{
+.info-container {
   background: #f7f7f7;
 }
 
-.lists-container{
-  height: 50%;
+.lists-container {
+  background: #f7f7f7;
 }
+
+.user-list {
+  background: #f7f7f7;
+  margin-bottom: 50px;
+}
+
+.trainings-list {
+  background: #f7f7f7;
+}
+

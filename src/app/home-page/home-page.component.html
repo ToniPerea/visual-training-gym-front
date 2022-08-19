@@ -81,7 +81,7 @@
 
     <div fxLayout="column" fxFlex="100">
         <div class="info-container" fxFlex="40%" fxLayoutAlign="center center">
-            <mat-card fxLayout="column" fxLayoutAlign="center center" fxFlex="30%">
+            <mat-card fxLayout="column" fxLayoutAlign="center center" fxFlex="40%">
                 <mat-card-title>Información del Usuario</mat-card-title>
                 <div fxLayout="row" fxLayoutAlign="space-evenly center">
                     <div>
@@ -99,12 +99,25 @@
 
         </div>
         <div class="lists-container" fxFlex="60%">
-            <div fxLayout="row">
-                <div style="background: pink" fxFlex="50%">
-                    <p>Hola</p>
+            <div fxLayout="row" fxLayoutAlign="space-evenly center">
+                <div class="user-list" fxLayout="column" fxLayoutAlign="center center">
+                    <p>Lista de Usuarios</p>
+                    <mat-card class="table-users">
+                        <app-users-list></app-users-list>
+                    </mat-card>
                 </div>
-                <div style="background: purple" fxFlex="50%">
-                    <p>Hola</p>
+                <div class="trainings-list" fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center">
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <p>Lista de Entrenamientos</p>
+                        <mat-card class="table-trainings">
+                            <app-trainings-list [status]="role"></app-trainings-list>
+                        </mat-card>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+                        <button mat-raised-button color="accent" routerLink="/createTraining">Crear Tabla de
+                            Entrenamiento
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
