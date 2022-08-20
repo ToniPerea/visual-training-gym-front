@@ -8,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ExerciseFormPageComponent implements OnInit {
   constructor() {}
 
+  title = 'Crear Ejercicio';
+
   ngOnInit(): void {}
 }
