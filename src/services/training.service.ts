@@ -15,7 +15,8 @@ export class TrainingService {
   add(trainingData: Training): Observable<Training> {
     return this.http
       .post<IJsonObject>(
-        'http://localhost:8080/training',
+        // 'http://localhost:8080/training',
+        'http://vtgym.sytes.net:8080/training',
         Serialize(trainingData, () => Training)
       )
       .pipe(
@@ -25,26 +26,38 @@ export class TrainingService {
   }
 
   getTrainingsList(): Observable<Array<Training>> {
-    return this.http
-      .get<IJsonArray>(`http://localhost:8080/getTrainingsList`)
-      .pipe(map((trainingsList) => DeserializeArray(trainingsList, () => Training)));
+    return (
+      this.http
+        //   .get<IJsonArray>(`http://localhost:8080/getTrainingsList`)
+        .get<IJsonArray>(`http://vtgym.sytes.net:8080/getTrainingsList`)
+        .pipe(map((trainingsList) => DeserializeArray(trainingsList, () => Training)))
+    );
   }
 
   getTrainingsListOneUser(emailClient: string): Observable<Array<Training>> {
-    return this.http
-      .get<IJsonArray>(`http://localhost:8080/getTrainingsListOneUser/${emailClient}`)
-      .pipe(map((trainingsList) => DeserializeArray(trainingsList, () => Training)));
+    return (
+      this.http
+        //   .get<IJsonArray>(`http://localhost:8080/getTrainingsListOneUser/${emailClient}`)
+        .get<IJsonArray>(`http://vtgym.sytes.net:8080/getTrainingsListOneUser/${emailClient}`)
+        .pipe(map((trainingsList) => DeserializeArray(trainingsList, () => Training)))
+    );
   }
 
   get(clientEmail: string): Observable<Training> {
-    return this.http
-      .get<IJsonObject>(`http://localhost:8080/getTraining/${clientEmail}`)
-      .pipe(map((training) => Deserialize(training, () => Training)));
+    return (
+      this.http
+        //   .get<IJsonObject>(`http://localhost:8080/getTraining/${clientEmail}`)
+        .get<IJsonObject>(`http://vtgym.sytes.net:8080/getTraining/${clientEmail}`)
+        .pipe(map((training) => Deserialize(training, () => Training)))
+    );
   }
 
   getById(id: string | null | undefined): Observable<Training> {
-    return this.http
-      .get<IJsonObject>(`http://localhost:8080/getTrainingByID/${id}`)
-      .pipe(map((training) => Deserialize(training, () => Training)));
+    return (
+      this.http
+        //   .get<IJsonObject>(`http://localhost:8080/getTrainingByID/${id}`)
+        .get<IJsonObject>(`http://vtgym.sytes.net:8080/getTrainingByID/${id}`)
+        .pipe(map((training) => Deserialize(training, () => Training)))
+    );
   }
 }
